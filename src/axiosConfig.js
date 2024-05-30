@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL, // your API base URL
@@ -14,8 +15,7 @@ axiosInstance.interceptors.request.use(
     // Modify request config before sending request
     const token = localStorage.getItem('token');
     if (token) {
-      //config.headers.Authorization = `Bearer ${token}`;
-      config.headers.Authorization = `${token}`;
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
@@ -32,10 +32,11 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
+    const navigate = useNavigate();
     // Handle response error
     if (error.response.status === 401) {
       // handle unauthorized access (e.g., redirect to login)
-      <Navigate to="/" />
+      navigate("/");
     }
     return Promise.reject(error);
   }
