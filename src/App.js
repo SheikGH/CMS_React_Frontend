@@ -4,26 +4,27 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import Login from './pages/Home/Login';
-import Home from './pages/Home/Home';
+import Register from './pages/Home/Register';
 import Customer from './pages/Customer/Customer';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
-const Protected = () => <h3>Protected</h3>;
-
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token') || '');
+  const [username, setUserName] = useState(localStorage.getItem('username') || '');
 
   const handleLogout = () => {
     setToken('');
+    setUserName('');
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
   };
 
   useEffect(() => {
     const checkToken = async () => {
       if (token) {
         try {
-          await axios.get('https://localhost:7067/api/customers', {
+          await axios.get(process.env.REACT_APP_API_URL + '/customers', {
             headers: { Authorization: token }
           });
         } catch (error) {
@@ -39,17 +40,21 @@ const App = () => {
     <div className="App">
       <Router>
         <ToastContainer theme='dark' position='top-center' />
-        <Header />
-        <Routes>
-          {/* <Route path="/" element={<Login setToken={setToken} />} />  */}
-          <Route path="/" element={<Login setToken={setToken} />} />
-          <Route path="/customer" element={<PrivateRoute token={token}><Customer /></PrivateRoute>} />
-          {/* <Route path="/protected" element={<PrivateRoute token={token}><Protected /></PrivateRoute>} /> */}
-        </Routes>
-        {token && <button className='btn btn-primary' onClick={handleLogout}>Logout</button>}
-        
+        <Header token={token} setToken={setToken} username = {username} setUserName={setUserName} />
+        <div id="page-wrapper">
+          <div class="container-fluid">
+            <div class="panel panel-default">
+              <div class="panel-body"></div>
+              <Routes>
+                <Route path="/" element={<Login setToken={setToken} />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/customer" element={<PrivateRoute token={token}><Customer /></PrivateRoute>} />
+              </Routes>
+            </div>
+          </div>
+        </div>
         <Footer />
-      </Router>
+      </Router >
     </div>
   );
 };

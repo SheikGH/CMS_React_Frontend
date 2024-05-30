@@ -5,14 +5,18 @@
   "dependencies": {
     "@blueprintjs/core": "^5.10.3",
     "@blueprintjs/icons": "^5.9.0",
+    "@hookform/resolvers": "^3.4.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
+    "formik": "^2.4.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.51.5",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,7 +44,6 @@
   },
   "devDependencies": {
     "@ant-design/icons": "^5.3.7",
-    "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7"
   }
 }
