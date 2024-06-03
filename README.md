@@ -1,3 +1,14 @@
+Site Url: [https://localhost:7067/](http://localhost:3000/)
+
+API End points:
+Get:https://localhost:7067/api/Customers
+GetByID:https://localhost:7067/api/Customers/2
+PUT:https://localhost:7067/api/Customers/7
+Delete: https://localhost:7067/api/Customers/7
+
+Application - CMS - Changes
+cms\.env - add your api url - REACT_APP_API_URL = https://localhost:7067/api
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
