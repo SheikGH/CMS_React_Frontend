@@ -14,7 +14,11 @@ Add a customer => PUT:https://localhost:7067/api/Customers/7
 Delete a customer => Delete: https://localhost:7067/api/Customers/7
 
 Application - CMS - Changes
-cms\.env - add your api url - REACT_APP_API_URL = https://localhost:7067/api
+1. cms\.env - add your api url - REACT_APP_API_URL = https://localhost:7067/api
+2. Check Dependencies:
+   Make sure you have all the necessary dependencies installed. Navigate to the project directory and run:
+   Terminal Run Command: npm install
+   This command will install all the packages listed in the package.json file.
 
 # Getting Started with Create React App
 
