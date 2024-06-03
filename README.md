@@ -1,10 +1,17 @@
-Site Url: [https://localhost:7067/](http://localhost:3000/)
+# CMS
+Customer Management System has been created by React as Frontend Application
+
+Site Url: http://localhost:3000
 
 API End points:
-Get:https://localhost:7067/api/Customers
-GetByID:https://localhost:7067/api/Customers/2
-PUT:https://localhost:7067/api/Customers/7
-Delete: https://localhost:7067/api/Customers/7
+Login => Get: https://localhost:7067/api/Auth/login
+Register => Post: https://localhost:7067/api/Auth/register
+
+Customers:
+Get all customers => Get:https://localhost:7067/api/Customers
+Get a customer => GetByID:https://localhost:7067/api/Customers/2
+Add a customer => PUT:https://localhost:7067/api/Customers/7
+Delete a customer => Delete: https://localhost:7067/api/Customers/7
 
 Application - CMS - Changes
 cms\.env - add your api url - REACT_APP_API_URL = https://localhost:7067/api
