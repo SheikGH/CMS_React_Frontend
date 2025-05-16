@@ -28,7 +28,7 @@ const App = () => {
             headers: { Authorization: token }
           });
         } catch (error) {
-          handleLogout();
+          // handleLogout();
         }
       }
     };
@@ -40,16 +40,17 @@ const App = () => {
     <div className="App">
       <Router>
         <ToastContainer theme='dark' position='top-center' />
-        <Header token={token} setToken={setToken} username = {username} setUserName={setUserName} />
+        <Header token={token} setToken={setToken} username={username} setUserName={setUserName} />
         <div id="page-wrapper">
           <div class="container-fluid">
             <div class="panel panel-default">
-              <div class="panel-body"></div>
-              <Routes>
-                <Route path="/" element={<Login setToken={setToken} />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/customer" element={<PrivateRoute token={token}><Customer /></PrivateRoute>} />
-              </Routes>
+              <div class="panel-body">
+                <Routes>
+                  <Route path="/" element={<Login setToken={setToken} setUserName = {setUserName}/>} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/customer" element={<PrivateRoute token={token}><Customer /></PrivateRoute>} />
+                </Routes>
+              </div>
             </div>
           </div>
         </div>

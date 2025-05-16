@@ -11,4 +11,31 @@
     margin-right: auto;
     overflow-x:auto;
   }
+  .center {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .center th,
+  .center td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .center th {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .center tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .center tr:hover {
+    background-color: #eaeaea;
+  }
+  
   
